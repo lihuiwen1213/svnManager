@@ -21,7 +21,8 @@ app.use(express.static("public"));
 app.get('/', function (req, res) {
     res.render('index',{title:"第一个express实例"});
 });
-app.get('/controller', gitOperations.clone);
+app.get('/controller/createBranch/:name', gitOperations.createBranch);
+app.get('/controller/getBranchInfo', gitOperations.getBranchInfo);
 
 //容错机制，处理未定义路由，和服务器内部错误
 app.get('*', function (req, res) {
